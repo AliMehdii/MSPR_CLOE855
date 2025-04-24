@@ -2,7 +2,7 @@
 PROJET CLOE855
 ------------------------------------------------------------------------------------------------------
 Quelles sont les notions qui vont être abordées au cours de cet atelier ?  
-Ce support a été créé pour vous accompagner dans la réalisation de votre atelier "développer et sécuriser une solution cloud". Il s'agit ici de concevoir et sécuriser des solutions d'infrastructure virtualisées et cloud. Plus précisement, cet atelier a pour objectif de mettre en pratique vos connaissances informatiques liées à la sécurisation d’une infrastructure IT virtualisée. Il s'agit d'une étude de cas concernant une entreprise « fictive » ayant un besoin de sécuriser sa solution cloud. Dans cette étude de cas vous devrez réaliser :
+Ce support a été créé pour vous accompagner dans la réalisation de votre atelier "développer et sécuriser une solution cloud". Il s'agit ici de concevoir et sécuriser des solutions d'infrastructure virtualisées et cloud. Plus précisement, cet atelier a pour objectif de mettre en pratique vos connaissances informatiques liées à la sécurisation d'une infrastructure IT virtualisée. Il s'agit d'une étude de cas concernant une entreprise « fictive » ayant un besoin de sécuriser sa solution cloud. Dans cette étude de cas vous devrez réaliser :
  - Mise en service d'une solution Web.  
  - Mettre en place une solution pour sécuriser les clés SSH de la solution.  
  - Mettre en place des scripts d'automatisation.
@@ -217,6 +217,9 @@ Permet de faire un filtre sur un client. Vous pouvez changer la valeur de 1 par 
 
 https://{Votre_URL}**/consultation/**  
 Permet de consulter tous les clients de la base de données  
+
+https://{Votre_URL}**/fiche_nom/<nom>**
+Permet de consulter les clients par nom
 
 https://{Votre_URL}**/enregistrer_client**  
 API pour enregistrer un nouveau client  
