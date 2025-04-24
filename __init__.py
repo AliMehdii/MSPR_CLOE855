@@ -51,9 +51,9 @@ def authentification_user():
             return redirect(url_for('consultation')) # Ou une autre page post-login
         else:
             # Afficher un message d'erreur si les identifiants sont incorrects
-            return render_template('formulaire_authentification_user.html', error=True)
+            return render_template('formulaire_authentification.html', error=True)
 
-    return render_template('formulaire_authentification_user.html', error=False)
+    return render_template('formulaire_authentification.html', error=False)
 
 @app.route('/fiche_client/<int:post_id>')
 def Readfiche(post_id):
