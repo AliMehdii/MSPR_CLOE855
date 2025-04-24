@@ -39,6 +39,22 @@ def authentification():
 
     return render_template('formulaire_authentification.html', error=False)
 
+# Route pour l'authentification des utilisateurs standards
+@app.route('/authentification_user', methods=['GET', 'POST'])
+def authentification_user():
+    if request.method == 'POST':
+        # Vérifier les identifiants pour l'utilisateur standard
+        if request.form['username'] == 'user' and request.form['password'] == '12345':
+            session['user_authentifie'] = True
+            # Rediriger vers une page appropriée après une authentification réussie
+            # Pour l'instant, redirigeons vers une page simple ou la consultation
+            return redirect(url_for('consultation')) # Ou une autre page post-login
+        else:
+            # Afficher un message d'erreur si les identifiants sont incorrects
+            return render_template('formulaire_authentification_user.html', error=True)
+
+    return render_template('formulaire_authentification_user.html', error=False)
+
 @app.route('/fiche_client/<int:post_id>')
 def Readfiche(post_id):
     conn = sqlite3.connect('database.db')
@@ -79,6 +95,11 @@ def enregistrer_client():
 
 @app.route('/fiche_nom/<nom>')
 def ReadficheNom(nom):
+    # Vérifier si l'utilisateur standard est authentifié
+    if not session.get('user_authentifie'):
+        # Rediriger vers la page d'authentification utilisateur si non authentifié
+        return redirect(url_for('authentification_user'))
+
     conn = sqlite3.connect('database.db')
     cursor = conn.cursor()
     cursor.execute('SELECT * FROM clients WHERE nom = ?', (nom,))
