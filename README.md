@@ -212,6 +212,9 @@ L'accès est conditionné à un contrôle d'accès
 https://{Votre_URL}**/authentification**  
 Page d'authentification (Login = **admin**, Mot de passe = **password**)  
 
+https://{Votre_URL}**/authentification_user**
+Page d'authentification utilisateur (Login = **user**, Mot de passe = **12345**)
+
 https://{Votre_URL}**/fiche_client/1**  
 Permet de faire un filtre sur un client. Vous pouvez changer la valeur de 1 par le N° du client de votre choix  
 
@@ -219,7 +222,7 @@ https://{Votre_URL}**/consultation/**
 Permet de consulter tous les clients de la base de données  
 
 https://{Votre_URL}**/fiche_nom/<nom>**
-Permet de consulter les clients par nom
+Permet de consulter les clients par nom (Nécessite une authentification utilisateur via /authentification_user)
 
 https://{Votre_URL}**/enregistrer_client**  
 API pour enregistrer un nouveau client  
@@ -237,7 +240,8 @@ Cette fonctionnalité sera accéssible via la route suivante : **/fiche_nom/**
 **Exercice 2 : Protection (2 points)**  
 Cette nouvelle route "/fiche_nom/" est soumise à un contrôle d'accès User. C'est à dire différent des login et mot de passe administrateur.  
 Pour accéder à cette fonctionnalité, l'utilisateur sera authentifié sous les login et mot de passe suivant : **user/12345**
-  
+*Implémentation : Ajout de la route `/authentification_user` et protection de la route `/fiche_nom/<nom>` par session utilisateur.*
+
 ---------------------------------------------------
 Séquence 6 : MSPR CLOE855
 ---------------------------------------------------
